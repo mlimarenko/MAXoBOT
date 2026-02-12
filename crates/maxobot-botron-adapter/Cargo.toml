@@ -1,0 +1,35 @@
+[package]
+name = "maxobot-botron-adapter"
+version = "0.1.0"
+description = "Optional MAXoBOT adapter boundary for Botron event and action mapping."
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+keywords.workspace = true
+categories.workspace = true
+readme = "../../README.md"
+
+[features]
+default = []
+dispatch = ["dep:maxobot-dispatch"]
+strict = []
+
+[dependencies]
+async-trait.workspace = true
+http.workspace = true
+maxobot-core = { path = "../maxobot-core", version = "0.1.0", default-features = false }
+maxobot-dispatch = { path = "../maxobot-dispatch", version = "0.1.0", default-features = false, optional = true }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+
+[dev-dependencies]
+maxobot-dispatch = { path = "../maxobot-dispatch", version = "0.1.0", default-features = false }
+tokio = { workspace = true, features = ["macros", "rt"] }
+
+[lints]
+workspace = true

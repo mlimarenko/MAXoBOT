@@ -1,0 +1,10 @@
+msrv = "1.85.0"
+cognitive-complexity-threshold = 25
+too-many-arguments-threshold = 8
+type-complexity-threshold = 300
+enum-variant-name-threshold = 4
+allow-unwrap-in-tests = true
+allow-expect-in-tests = true
+allow-panic-in-tests = true
+disallowed-names = ["foo", "bar", "baz", "tmp"]
+doc-valid-idents = ["MAX", "MAXoBOT", "Botron", ".."]

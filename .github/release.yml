@@ -1,0 +1,28 @@
+changelog:
+  categories:
+    - title: Ломающие изменения
+      labels:
+        - breaking
+        - semver-major
+    - title: Новые возможности
+      labels:
+        - feature
+        - enhancement
+    - title: Исправления
+      labels:
+        - bug
+        - fix
+    - title: Документация
+      labels:
+        - docs
+    - title: Техническое обслуживание
+      labels:
+        - chore
+        - ci
+        - dependencies
+  exclude:
+    labels:
+      - skip-changelog
+      - internal
+    authors:
+      - dependabot[bot]
