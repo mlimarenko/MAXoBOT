@@ -1,0 +1,56 @@
+[package]
+name = "maxobot"
+version = "0.1.0"
+description = "Public facade crate for building MAX Messenger bots in Rust."
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+keywords.workspace = true
+categories.workspace = true
+readme = "../../README.md"
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[features]
+default = ["dispatch", "webhook-axum", "rustls-tls"]
+dispatch = ["dep:maxobot-dispatch"]
+webhook = ["dep:maxobot-webhook"]
+webhook-axum = ["webhook", "maxobot-webhook/axum"]
+botron-adapter = ["dep:maxobot-botron-adapter"]
+native-tls = ["maxobot-core/native-tls"]
+rustls-tls = ["maxobot-core/rustls-tls"]
+
+[dependencies]
+maxobot-botron-adapter = { path = "../maxobot-botron-adapter", version = "0.1.0", optional = true }
+maxobot-core = { path = "../maxobot-core", version = "0.1.0", default-features = false }
+maxobot-dispatch = { path = "../maxobot-dispatch", version = "0.1.0", optional = true }
+maxobot-webhook = { path = "../maxobot-webhook", version = "0.1.0", default-features = false, optional = true }
+reqwest.workspace = true
+
+[dev-dependencies]
+async-trait.workspace = true
+axum.workspace = true
+serde_json.workspace = true
+tokio = { workspace = true, features = ["macros", "rt-multi-thread"] }
+
+[[example]]
+name = "polling_echo"
+path = "../../examples/polling_echo.rs"
+required-features = ["rustls-tls"]
+
+[[example]]
+name = "webhook_echo"
+path = "../../examples/webhook_echo.rs"
+required-features = ["dispatch", "webhook-axum", "rustls-tls"]
+
+[[example]]
+name = "botron_adapter_smoke"
+path = "../../examples/adapter_smoke.rs"
+required-features = ["botron-adapter"]
+
+[lints]
+workspace = true

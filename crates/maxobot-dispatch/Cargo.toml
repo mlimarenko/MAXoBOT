@@ -1,0 +1,29 @@
+[package]
+name = "maxobot-dispatch"
+version = "0.1.0"
+description = "Typed handler routing, filters, middleware, and dispatcher runtime for MAX updates."
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+keywords.workspace = true
+categories.workspace = true
+readme = "../../README.md"
+
+[features]
+default = ["instrumentation"]
+instrumentation = ["dep:tracing"]
+
+[dependencies]
+async-trait.workspace = true
+futures.workspace = true
+maxobot-core = { path = "../maxobot-core", version = "0.1.0", default-features = false }
+serde_json.workspace = true
+thiserror.workspace = true
+tokio = { workspace = true, features = ["macros", "rt", "sync", "time"] }
+tracing = { workspace = true, optional = true }
+uuid.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,31 @@
+# Rust build outputs
+/target/
+/debug/
+/release/
+**/*.rs.bk
+**/*.rlib
+**/*.prof*
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+*.log.*
+
+# IDE and editor artifacts
+.idea/
+.vscode/
+.cursor/
+*.swp
+*.swo
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
