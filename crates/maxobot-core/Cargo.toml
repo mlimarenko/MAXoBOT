@@ -1,0 +1,39 @@
+[package]
+name = "maxobot-core"
+version = "0.1.0"
+description = "Core MAX API transport, models, reliability, and diagnostics primitives."
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+keywords.workspace = true
+categories.workspace = true
+readme = "../../README.md"
+
+[features]
+default = ["rustls-tls"]
+native-tls = ["reqwest/default-tls"]
+rustls-tls = ["reqwest/rustls-tls-native-roots"]
+test-util = []
+
+[dependencies]
+async-trait.workspace = true
+bytes.workspace = true
+chrono.workspace = true
+futures.workspace = true
+http.workspace = true
+mime.workspace = true
+parking_lot.workspace = true
+reqwest.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tokio = { workspace = true, features = ["macros", "rt", "sync", "time"] }
+tracing.workspace = true
+url.workspace = true
+uuid.workspace = true
+
+[lints]
+workspace = true
+

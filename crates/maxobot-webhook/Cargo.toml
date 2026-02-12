@@ -1,0 +1,33 @@
+[package]
+name = "maxobot-webhook"
+version = "0.1.0"
+description = "Webhook verification and parsing primitives with optional web framework adapters."
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+keywords.workspace = true
+categories.workspace = true
+readme = "../../README.md"
+
+[features]
+default = []
+axum = ["dep:axum", "dep:tower", "dep:maxobot-dispatch"]
+
+[dependencies]
+axum = { workspace = true, optional = true }
+http.workspace = true
+maxobot-core = { path = "../maxobot-core", version = "0.1.0", default-features = false }
+maxobot-dispatch = { path = "../maxobot-dispatch", version = "0.1.0", default-features = false, optional = true }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tower = { workspace = true, optional = true }
+tracing.workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["macros", "rt"] }
+
+[lints]
+workspace = true

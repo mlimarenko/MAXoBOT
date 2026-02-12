@@ -1,0 +1,5 @@
+mod test_callback_answer_contract;
+mod test_me_and_chats_contract;
+mod test_messages_contract;
+mod test_upload_contract;
+mod test_updates_query_contract;
